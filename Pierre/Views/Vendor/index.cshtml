@@ -11,9 +11,11 @@
   <p>No Vendors</p>
 }
 <ul>
-  @foreach (Vendor vendor in Model)
+  @foreach(Vendor vendor in Model)
   {
-    <li><a href="/vendor/@vendor.Id">@vendor.VendorName</a></li>
+  <li>
+  @vendor.VendorName
+    </li>
   }
 <ul>
 <a href='/vendor/new'>New Vendor</a>
