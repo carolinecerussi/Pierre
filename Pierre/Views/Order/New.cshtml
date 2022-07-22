@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+<form action="/vender/{id}/order/" method="post">
+  <label for="orderName">Order:</label>
+  <input id="orderName" type="text" placeholder="Name of Order"></input>
+  <label for="orderItems">description</label>
+  <input id="orderItems" type="text" placeholder="description of order"></input>
+  <label for="orderPrice">Price:</label>
+  <input id="orderPrice" type="text" placeholder="$"></input>
+  <label for="orderDate">Date(mm/dd/yyyy)</label>
+  <input id="orderDate" type="text" placeholder="mm/dd/yyy"></input>
+  <button type="submit">Create Order</button>
+</form>
