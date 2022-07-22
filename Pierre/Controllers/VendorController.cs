@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using Pierre.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +15,9 @@ namespace Pierre.Controllers
       return View(allVendors);
     }
     [HttpPost("/vendor")]
-    public ActionResult Create(string vendorInfo)
+    public ActionResult Create(string vendorName)
     {
-      Vendor theVendor = new Vendor(vendorInfo);
+      Vendor theVendor = new Vendor(vendorName);
       return RedirectToAction("Index");
     }
     [HttpGet("/vendor/{id}")]
