@@ -9,7 +9,7 @@ namespace Pierre.Controllers
   public class VendorController : Controller
   {
     [HttpGet("/vendor")]
-    public ActionResult Index()
+    public ActionResult VendorIndex()
     {
       List<Vendor> allVendors = Vendor.GetAll();
       return View(allVendors);
@@ -18,7 +18,7 @@ namespace Pierre.Controllers
     public ActionResult Create(string vendorName)
     {
       Vendor theVendor = new Vendor(vendorName);
-      return RedirectToAction("Index");
+      return RedirectToAction("VendorIndex");
     }
     [HttpGet("/vendor/{id}")]
     public ActionResult Show(int id)

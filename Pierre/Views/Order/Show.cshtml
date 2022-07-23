@@ -1,8 +1,11 @@
+
 @{
   Layout = "_Layout";
 }
 
-<h1>@Model.OrderName</h1>
-<p>@Model.OrderInfo</p>
-<form action="/vendor/{id}/order/{oid}" method="post"></form>
-<a href='/vendor/{id}/order'>Order History</a>
+<h1>@Order.OrderName</h1>
+<p>Description: @Order.OrderDescription</p>
+<p>Price:$@Order.OrderPrice</p>
+<p>Date: @Order.OrderDate</p>
+
+<p>@Model.VendorName</p>

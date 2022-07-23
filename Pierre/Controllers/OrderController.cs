@@ -15,21 +15,21 @@ namespace Pierre.Controllers
       return View(allOrders);
     }
     [HttpPost("/vendor/{id}/order")]
-    public ActionResult Create(string orderInfo)
+    public ActionResult Create(string orderName)
     {
-      Order theOrder = new Order(orderInfo);
-      return RedirectToAction("View");
-    }
-    [HttpGet("/vendor/{id}/order/new")]
-    public ActionResult New()
-    {
-      return View();
+      Order theOrder = new Order(orderName);
+      return RedirectToAction("Index");
     }
     [HttpGet("/vendor/{id}/order/{oid}")]
     public ActionResult Show(int oid)
     {
-    Order foundOrder = Order.Find(oid);
-    return View(foundOrder);
+      Order foundOrder = Order.Find(oid);
+      return View(foundOrder);
+    }
+    [HttpGet("/vendor/{id}/order/{Oid}new")]
+    public ActionResult New()
+    {
+      return View();
     }
   }
 }

@@ -10,7 +10,7 @@
   <p>No past orders</p>
 }
 <ul>
-@foreach(Order order in Model)
+@foreach(Order order in Vendor)
 {
 <li><a href="/order/@order.Oid">@order.OrderName</a></li>
 }
