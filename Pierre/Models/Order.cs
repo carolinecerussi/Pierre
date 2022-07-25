@@ -1,31 +1,32 @@
 using System.Collections.Generic;
+using Pierre.Models;
 
 namespace Pierre.Models
 {
   public class Order
   {
-    public string OrderName {get;set;}
-    public string OrderDescription {get;set;}
-    public string OrderPrice {get;set;}
     public int Oid {get;}
-    private static List<Order> _instances = new List<Order>{};
-    public Order(string orderName, string orderDescription, string orderPrice, int Oid)
+    private static List<Order> _instancesO = new List<Order>{};
+    public Order(string orderName, string orderDescription, string orderPrice, string orderDate)
     {
-      OrderName =orderName;
-      _instances.Add(this);
-      Oid = _instances.Count;
-    }
-    public static void ClearAll()
-    {
-      _instances.Clear();
+    _OrderName=orderName;
+    _OrderDescription = orderDescription;
+    _OrderPrice = orderPrice;
+    _OrderDate= orderDate;
+    _instancesO.Add(this);
+    Oid = _instancesO.Count;
     }
     public static List<Order> GetAll()
     {
-      return _instances;
+      return _instancesO;
+    }
+    public static void ClearAll()
+    {
+      _instancesO.Clear();
     }
     public static Order Find(int searchOid)
     {
-      return _instances[searchOid-1];
+      return _instancesO[searchOid-1];
     }
 
   }

@@ -23,7 +23,7 @@ namespace Pierre.Tests
     {
       string orderInfo = "nice order info";
       Order newOrder = new Order(orderInfo);
-      string result = newOrder.OrderName;
+      string result = newOrder.OrderInfo;
       Assert.AreEqual(orderInfo, result);
     }
     [TestMethod]

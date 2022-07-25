@@ -1,11 +1,18 @@
-
 @{
   Layout = "_Layout";
 }
 
-<h1>@Order.OrderName</h1>
-<p>Description: @Order.OrderDescription</p>
-<p>Price:$@Order.OrderPrice</p>
-<p>Date: @Order.OrderDate</p>
+@using Pierre.Models;
 
-<p>@Model.VendorName</p>
+<h1>Vendor Order Details</h1>
+
+<h3>Vendor: @Model["vendor"].vendorName</h3>
+
+<p>Order Name: @Model["order"].OrderName;
+   Order Description : @Model["order"].OrderDescription;
+   Order Price : @Mode["order"].OrderPrice;
+   Order Date : @Mode["order"].OrderDate;
+</p>
+
+
+<p><a href='/vendor/@Model["vendor"].Id/order/new'>Add new order</a></p>

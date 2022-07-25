@@ -2,8 +2,15 @@
   Layout = "_Layout";
 }
 
-<h1>@Model.VendorName</h1>
-<form action="/vendor/{id}" method="post"></form>
-<a href='/vendor/{id}/order'>Order History</a>
+@using Pierre.Models;
+
+
+<ol>
+  @forEach (Order order in @Model["order"])
+  {
+    <li><a href="/vendor/@Model['vendor'].Id">@Model.Name</a></li>
+  }
+</ol>
+<a href='/vendor/{id}/order/'>Order History</a>
 <break></break>
 <a href="/vendor">Vendor Directory</a>

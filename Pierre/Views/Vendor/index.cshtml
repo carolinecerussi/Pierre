@@ -8,13 +8,15 @@
 
 @if (Model.Count == 0)
 {
-  <p>No Vendors</p>
+  <p>No Vendors yet!</p>
 }
 <ul>
 @foreach(Vendor vendor in Model)
 {
-<li><a href="/vendor/@vendor.Id">@vendor.VendorName</a></li>
+<li><a href="/vendor/@vendor.Id">@Vendor.name</a></li>
 }
 <ul>
   
 <a href='/vendor/new'>New Vendor</a>
+<a href="/">Back to Homepage</a> 
+

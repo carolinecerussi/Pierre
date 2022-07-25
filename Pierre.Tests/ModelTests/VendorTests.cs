@@ -38,6 +38,14 @@ namespace Pierre.Tests
       CollectionAssert.AreEqual(newList, result);
     }
     [TestMethod]
+    public void AddOrder_AssociatesOrderWithVendor_OrderDetails()
+    {
+      string orderDetails = "gdffgjegm";
+      Order newOrder = new Vendor(orderDetails);
+      string result = newOrder.OrderDetails;
+      Assert.AreEqual(orderDetails, result);
+    }
+    [TestMethod]
     public void GetId_ReturnVendorId_Int()
     {
       string vendorName = "text name";
