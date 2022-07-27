@@ -4,13 +4,12 @@
 
 @using Pierre.Models;
 
-<h1>Order Details:</h1>
+<h1>order.OrderName Details:</h1>
 
 <h3>Vendor : @Model["vendor"].VendorName</h3>
-<h3>Order Name: @Model["order"].OrderName</h3>
-<h3> Order Description: @Model["order"].OrderDescription</h3>
-<h3>Order Price: $ @Model["order"].OrderPrice</h3>
-<h3>Order Date: @Model["order"].OrderDate</h3>
+<h3> Includes: @Model["order"].OrderDescription</h3>
+<h3> Price: $ @Model["order"].OrderPrice</h3>
+<h3>Date: mm/dd/yyyy: @Model["order"].OrderDate</h3>
 
 
 <a href='/vendor/@Model["vendor"].Id/order/new'>Add another Order</a>

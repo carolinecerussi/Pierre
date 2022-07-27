@@ -12,13 +12,10 @@
 }
 @foreach(Vendor vendor in Model)
 {
-<h3><a href="/vendor/@vendor.Id">@vendor.VendorName</a></h3>
+<h3><a href="/vendors/@vendor.Id">@vendor.VendorName</a></h3>
 }
-<a href='/vendor/new'>New Vendor</a>
+<a href='/vendors/new'>New Vendor</a>
 
-<form action="/items/delete" method="post">
-  <button type="submit" name="button">Clear All Items</button>
-</form>
 
 <a href="/">Back to Homepage</a> 
 
