@@ -19,15 +19,15 @@ namespace Pierre.Tests
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
     [TestMethod]
-    public void GetVendorName_ReturnsVendorName_String()
+    public void GetId_ReturnVendorId_Int()
     {
-      string vendorName = "test name";
+      string vendorName = "text name";
       Vendor newVendor = new Vendor(vendorName);
-      string result = newVendor.VendorName;
-      Assert.AreEqual(vendorName, result);
+      int result = newVendor.Id;
+      Assert.AreEqual(1, result);
     }
     [TestMethod]
-    public void GetAll_ReturnsVendors_Vendors_VendorList()
+    public void GetAll_ReturnsVendorObjects_VendorList_VendorList()
     {
       string vendor1 = "caroline";
       string vendor2 = "finn";
@@ -38,20 +38,26 @@ namespace Pierre.Tests
       CollectionAssert.AreEqual(newList, result);
     }
     [TestMethod]
-    public void AddOrder_AssociatesOrderWithVendor_OrderDetails()
+    public void Find_ReturnsCorrectVendor_Vendor()
     {
-      string orderDetails = "gdffgjegm";
-      Order newOrder = new Vendor(orderDetails);
-      string result = newOrder.OrderDetails;
-      Assert.AreEqual(orderDetails, result);
+      string vendor1 = "caroline";
+      string vendor2 = "kyle";
+      Vendor newVendor1 = new Vendor(vendor1);
+      Vendor newVendor2 = new Vendor(vendor2);
+      Vendor result = Vendor.Find(2);
+      Assert.AreEqual(newVendor2, result);
     }
     [TestMethod]
-    public void GetId_ReturnVendorId_Int()
+    public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
-      string vendorName = "text name";
+      string orderName = "Caroline order 1";
+      Order newOrder = new Order(orderName);
+      List<Order> newList = new List<Order>{newOrder};
+      string vendorName ="Caroline";
       Vendor newVendor = new Vendor(vendorName);
-      int result = newVendor.Id;
-      Assert.AreEqual(1, result);
+      newVendor.AddOrder(newOrder);
+      List<Order> result = newVendor.Orders;
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }

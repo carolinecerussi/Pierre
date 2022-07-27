@@ -1,36 +1,52 @@
 using System.Collections.Generic;
 using System;
 using Pierre.Models;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Web;
 
 
 namespace Pierre.Controllers
 {
-  public class VendorController : Controller
+  public class VendorsController : Controller
   {
-    [HttpGet("/vendor")]
+    [HttpGet("/vendors")]
     public ActionResult Index()
     {
       List<Vendor> allVendors = Vendor.GetAll();
       return View(allVendors);
     }
-    [HttpPost("/vendor")]
+      [HttpGet("/vendors/new")]
+    public ActionResult New()
+    {
+      return View();
+    }
+    [HttpPost("/vendors")]
     public ActionResult Create(string vendorName)
     {
     Vendor newVendor = new Vendor(vendorName);
     return RedirectToAction("Index");
     }
-    [HttpGet("/vendor/{id}")]
+    [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
-      Vendor foundVendor = Vendor.Find(id); 
-      return View(foundVendor);
+      Dictionary<string, object> model = new Dictionary<string,object>();
+      Vendor selectedVendor = Vendor.Find(id);
+      List<Order> vendorOrders = selectedVendor.Orders;
+      model.Add("vendor", selectedVendor);
+      model.Add("orders", vendorOrders);
+      return View(model);
     }
-       [HttpGet("/vendor/new")]
-    public ActionResult New()
+    [HttpPost("/vendors/{id}/orders")]
+    public ActionResult Create(int id, string orderName,string orderDescription, string orderPrice, string orderDate)
     {
-      return View();
+      Dictionary<string, object> model = new Dictionary<string,object>();
+      Vendor foundVendor = Vendor.Find(id);
+      Order newOrder = new Order((itemName),(itemDescription),(itemPrice),(itemDate),);
+      //figure out how to call that^
+      foundVendor.AddOrder(newOrder);
+      List<Order> vendorOrders  = foundVendor.Orders;
+      model.Add("orders", vendorOrders);
+      model.Add("vendor", foundVendor);
+      return View("Show",model);
     }
   }
-
-  }
+}

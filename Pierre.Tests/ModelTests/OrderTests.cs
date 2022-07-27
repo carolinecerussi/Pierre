@@ -19,21 +19,58 @@ namespace Pierre.Tests
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
     [TestMethod]
-    public void GetOrderName_ReturnsOrderInfo_String()
+    public void GetOrderName_ReturnsName_String()
     {
-      string orderInfo = "nice order info";
-      Order newOrder = new Order(orderInfo);
-      string result = newOrder.OrderInfo;
-      Assert.AreEqual(orderInfo, result);
+      string orderName = "carolines order";
+      Order newName = new Order(orderName);
+      string result = newOrder.OrderName;
+      Assert.AreEqual(orderName, result);
     }
     [TestMethod]
-    public void GetAll_ReturnsOrders_Orders_OrderList()
+    public void GetOrderDescription_ReturnsDescription_String()
     {
-      string order1 = "order 1";
-      string order2 = "order 2";
-      Order newOrder1= new Order(order1);
-      Order newOrder2 = new Order(order2);
-      List<Order> newList = new List<Order>{newOrder1,newOrder2};
+      string orderDescription = "watermelons";
+      Order newDescription = new Order(orderDescription);
+      string result = newDescription.OrderDescription;
+      Assert.AreEqual(orderDescription, result);
+    }
+    [TestMethod]
+    public void GetOrderPrice_ReturnsPrice_String()
+    {
+      string orderPrice = "12";
+      Order newPrice = new Order(orderPrice);
+      string result = newPrice.OrderPrice;
+      Assert.AreEqual(orderPrice, result);
+    }
+    [TestMethod]
+    public void GetOrderDate_ReturnsDate_String()
+    {
+      string orderDate = "11/22/1994";
+      Order newDate = new Order(orderDate);
+      string result = newDate.OrderDate;
+      Assert.AreEqual(orderName, result);
+    }
+    [TestMethod]
+    public void GetAll_ReturnsOrderDetails_OrderDetails()
+    {
+      string orderName = "caroline order";
+      string orderDescription = "order description";
+      string orderPrice ="11";
+      string orderDate = "11/22/2021";
+      Order newName = new Order(orderName);
+      Order newDescription = new Order(orderDescription);
+      Order newPrice = new Order(orderPrice);
+      Order newDate = new Order(orderDate);
+      List<Order> newOrderDetail = new List <Order> {orderName, orderDescription, orderPrice, orderDate};
+
+      List<Order> orderResult = Order.GetAll();
+      CollectionAssert.AreEqual(newOrderDetail, orderResult);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyOrderList_OrderList()
+    {
+      List<Order> newList = new List<Order>{};
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
