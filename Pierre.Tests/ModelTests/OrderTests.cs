@@ -51,20 +51,16 @@ namespace Pierre.Tests
       Assert.AreEqual(orderName, result);
     }
     [TestMethod]
-    public void GetAll_ReturnsOrderDetails_OrderDetails()
+    public void GetAll_ReturnsOrderObjects_NewOrder()
     {
-      string orderName = "caroline order";
-      string orderDescription = "order description";
-      string orderPrice ="11";
-      string orderDate = "11/22/2021";
-      Order newName = new Order(orderName);
-      Order newDescription = new Order(orderDescription);
-      Order newPrice = new Order(orderPrice);
-      Order newDate = new Order(orderDate);
-      List<Order> newOrderDetail = new List <Order> {orderName, orderDescription, orderPrice, orderDate};
-
-      List<Order> orderResult = Order.GetAll();
-      CollectionAssert.AreEqual(newOrderDetail, orderResult);
+      string OrderName = "caroline";
+      string OrderDescription = "goggles";
+      string OrderPrice = "12";
+      string OrderDate = "11/22/2022";
+      Order newOrder = new Order{orderName, orderDescription, orderPrice, orderDate};
+      result = order.NewOrder;
+      // List<Order> newList = new List<Order>{newVendor, newVendor2};
+      CollectionAssert.AreEqual(newOrder, result);
     }
 
     [TestMethod]

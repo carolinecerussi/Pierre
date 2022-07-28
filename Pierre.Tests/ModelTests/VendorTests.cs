@@ -21,19 +21,20 @@ namespace Pierre.Tests
     [TestMethod]
     public void GetId_ReturnVendorId_Int()
     {
-      string vendorName = "text name";
-      Vendor newVendor = new Vendor(vendorName);
+      int id = 1;
+      Vendor newVendor = new Vendor(id);
       int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
+    // use same method above to get vendor name//
     [TestMethod]
     public void GetAll_ReturnsVendorObjects_VendorList_VendorList()
     {
-      string vendor1 = "caroline";
-      string vendor2 = "finn";
-      Vendor newVendor1 = new Vendor(vendor1);
-      Vendor newVendor2 = new Vendor(vendor2);
-      List<Vendor> newList = new List<Vendor>{newVendor1, newVendor2};
+      string vendorName = "caroline";
+      string vendorName2 = "finn";
+      Vendor newVendor = new Vendor(vendorName);
+      Vendor newVendor2 = new Vendor(vendorName2);
+      List<Vendor> newList = new List<Vendor>{newVendor, newVendor2};
       List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
@@ -47,16 +48,22 @@ namespace Pierre.Tests
       Vendor result = Vendor.Find(2);
       Assert.AreEqual(newVendor2, result);
     }
+
     [TestMethod]
     public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
-      string orderName = "Caroline order 1";
-      Order newOrder = new Order(orderName);
+      string orderName = "Order 1";
+      string orderDescription ="watermelons";
+      string orderPrice = "23";
+      string orderDate = "11/22/2022";
+      Order newOrder = new Order(orderName, orderDescription, orderPrice, orderDate);
       List<Order> newList = new List<Order>{newOrder};
       string vendorName ="Caroline";
       Vendor newVendor = new Vendor(vendorName);
       newVendor.AddOrder(newOrder);
+
       List<Order> result = newVendor.Orders;
+      
       CollectionAssert.AreEqual(newList, result);
     }
   }
