@@ -13,12 +13,12 @@ namespace Pierre.Controllers
       Vendor vendor = Vendor.Find(id);
       return View(vendor);
     }
-    [HttpPost("/orders/delete")]
-    public ActionResult DeleteAll()
-    {
-      Order.ClearAll();
-      return View();
-    }
+    // [HttpPost("/orders/delete")]
+    // public ActionResult DeleteAll()
+    // {
+    //   Order.ClearAll();
+    //   return View();
+    // }
     [HttpGet("/vendors/{id}/orders/{oid}")]
     public ActionResult Show(int id, int oid)
     {

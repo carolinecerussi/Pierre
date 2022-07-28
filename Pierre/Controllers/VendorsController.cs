@@ -31,15 +31,15 @@ namespace Pierre.Controllers
     public ActionResult Show(int id)
     {
     Dictionary<string, object> model = new Dictionary<string,object>();
-    Vendor foundVendor = Vendor.Find(id);
-    List<Order> vendorOrders = foundVendor.Orders;
-      model.Add("vendor", foundVendor);
-      model.Add("order", vendorOrders);
+    Vendor selectedVendor = Vendor.Find(id);
+    List<Order> vendorOrders = selectedVendor.Orders;
+      model.Add("vendor", selectedVendor);
+      model.Add("orders", vendorOrders);
       return View(model);
     }
 
     [HttpPost("/vendors/{id}/orders")]
-    public ActionResult Create(int id, string orderName, string orderDescription, string orderPrice, string orderDate)
+    public ActionResult New(int id, string orderName, string orderDescription, string orderPrice, string orderDate)
     {
       Dictionary<string,object> model = new Dictionary<string,object>();
       Vendor foundVendor = Vendor.Find(id);
